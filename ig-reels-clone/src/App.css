@@ -1,23 +1,22 @@
-
-.html {
+html {
   scroll-snap-type: y mandatory;
 }
-.app{
+.app {
   display: grid;
   place-items: center;
   height: 100vh;
   background-color: black;
 }
 
-.app__top > h1{
+.app__top > h1 {
   text-align: center;
   color: white;
 }
-.app__logo{
+.app__logo {
   height: 12vh;
 }
 
-.app__videos{
+.app__videos {
   position: relative;
   height: 65vh;
   background-color: white;
@@ -30,12 +29,12 @@
 }
 
 /* Hide the scrollbar for Chrome, safari and opera*/
-.app__videos::-webkit-scrollbar{
+.app__videos::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide the scrollbar for IE, Edge and Firefox*/
-.app__videos{
+.app__videos {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
