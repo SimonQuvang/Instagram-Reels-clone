@@ -1,12 +1,12 @@
-.video__card{
+.videoCard {
     position: relative;
-    border: 1px black;
+    border: 1px solid black;
     width: 100%;
     height: 100%;
     scroll-snap-align: start;
 }
 
-.video__player{
+.videoCard__player {
     object-fit: fill;
     width: 100%;
     height: 100%;

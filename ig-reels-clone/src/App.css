@@ -1,6 +1,7 @@
 html {
     scroll-snap-type: y mandatory;
 }
+
 .app {
     display: grid;
     place-items: center;
@@ -19,21 +20,18 @@ html {
 .app__videos {
     position: relative;
     height: 65vh;
-    background-color: white;
     width: 70%;
     border-radius: 20px;
-    max-height: 1200px;
     max-width: 450px;
+    max-height: 1200px;
     overflow: scroll;
     scroll-snap-type: y mandatory;
 }
 
-/* Hide the scrollbar for Chrome, safari and opera*/
 .app__videos::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide the scrollbar for IE, Edge and Firefox*/
 .app__videos {
     -ms-overflow-style: none;
     scrollbar-width: none;

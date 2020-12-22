@@ -1,8 +1,16 @@
 import "./App.css";
 import VideoCard from "./VideoCard";
-import VideoFooter from "./VideoFooter";
+import React, { useState, useEffect } from "react";
+import database from "./firebase";
 
 function App() {
+    const [reels, setReels] = useState([]);
+
+    useEffect(() => {
+        // snapshot.docs gives an array of all the things in the collection, map loops through them. .data gives the data in the document.
+        database.collection("reels").onSnapshot((snapshot) => setReels(snapshot.docs.map((doc) => doc.data)));
+    }, []);
+
     return (
         <div className="app">
             <div className="app__top">
@@ -15,19 +23,16 @@ function App() {
             </div>
 
             <div className="app__videos">
-                <VideoCard
-                    channel="SimonQuvang"
-                    avatarSrc="https://weneedfun.com/wp-content/uploads/2016/07/Cute-Girl-Profile-pictures-For-Facebook-14.jpg"
-                    videoSrc={
-                        "https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                    }
-                    song="Test song by testy test"
-                    likes={509}
-                    shares={30}
-                />
-                <VideoFooter />
-                <VideoCard />
-                <VideoCard />
+                {reels.map(({ channel, avatarSrc, song, url, likes, shares }) => (
+                    <VideoCard
+                        channel={channel}
+                        avatarSrc={avatarSrc}
+                        song={song}
+                        url={url}
+                        likes={likes}
+                        shares={shares}
+                    />
+                ))}
             </div>
         </div>
     );
